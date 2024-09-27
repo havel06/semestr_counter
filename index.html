@@ -1,0 +1,34 @@
+<head>
+	<script>
+		document.addEventListener("DOMContentLoaded", function(event){
+			let element = document.getElementById("percent");
+			let sem_begin = new Date(2024, 8, 16, 0, 0, 0).valueOf();
+			let sem_end = new Date(2024, 11, 14, 0, 0, 0).valueOf();
+
+			setInterval(function(){
+				let now = Date.now().valueOf();
+				let percentage = 100 * (now - sem_begin) / (sem_end - sem_begin);
+				element.innerText = percentage.toFixed(6);
+			}, 30);
+		});
+	</script>
+	<style>
+		#message {
+			font-size: 5rem;
+			font-family: sans-serif;
+		}
+
+		#wrapper {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrapper">
+		<div id="message">Uběhlo <span id="percent">0</span> % semestru.</div>
+	</div>
+</body>
