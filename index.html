@@ -1,15 +1,23 @@
-
-<div style="font-size: 5rem;font-family: sans-serif;margin: auto; display: flex; justify-content: center; align-items: center; height: 100%;">
+<div
+	style="
+		font-size: 5rem;
+		font-family: sans-serif;
+		margin: auto;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+	"
+>
 	<script>
-		document.addEventListener("DOMContentLoaded", function(event){
-			let element = document.getElementById("percent");
-			let sem_begin = new Date(2024, 8, 16, 0, 0, 0).valueOf();
-			let sem_end = new Date(2024, 11, 14, 0, 0, 0).valueOf();
-
-			setInterval(function(){
-				let now = Date.now().valueOf();
-				let percentage = 100 * (now - sem_begin) / (sem_end - sem_begin);
-				element.innerText = percentage.toFixed(6);
+		document.addEventListener("DOMContentLoaded", function (event) {
+			setInterval(function () {
+				document.getElementById("percent").innerText =
+					((100 * (Date.now().valueOf() - new Date(2024, 8, 16, 0, 0, 0).valueOf())) /
+					(
+						new Date(2024, 11, 14, 0, 0, 0).valueOf() -
+						new Date(2024, 8, 16, 0, 0, 0).valueOf()
+					)).toFixed(6);
 			}, 30);
 		});
 	</script>
